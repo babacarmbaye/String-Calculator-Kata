@@ -23,4 +23,10 @@ public class StringCalculatorTest {
         assertEquals(stringCalculator.add("2,6"), 8);
         assertEquals(stringCalculator.add("13,100"), 113);
     }
+
+    @Test
+    public void stringCalculatorWithUnknowndAmountOfNumbers() {
+        assertEquals(stringCalculator.add("2,6,7,100"), 115);
+        assertEquals(stringCalculator.add("13,100,10,5"), 128);
+    }
 }
