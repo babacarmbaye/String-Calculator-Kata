@@ -1,10 +1,15 @@
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import static org.junit.Assert.assertEquals;
 
 public class StringCalculatorTest {
 
     private StringCalculator stringCalculator;
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Before
     public void inititalize() {
@@ -34,5 +39,13 @@ public class StringCalculatorTest {
     public void stringCalculatorWithNewLineDelimited() {
         assertEquals(stringCalculator.add("2\n6"), 8);
         assertEquals(stringCalculator.add("13,100"), 113);
+    }
+
+    @Test
+    public void negativeInputReturnsException() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("negatives not allowed !");
+        stringCalculator.add("-5");
+        stringCalculator.add("-6,16\n-15");
     }
 }
