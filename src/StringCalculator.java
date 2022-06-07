@@ -16,6 +16,9 @@ public class StringCalculator {
     private int calculateSum(String[] numbers) {
         int sum = 0;
         for (String currentNumber:numbers) {
+            if (parseInt(currentNumber) > 1000) {
+                continue;
+            }
             sum += parseInt(currentNumber);
         }
         return sum;

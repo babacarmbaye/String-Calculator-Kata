@@ -48,4 +48,10 @@ public class StringCalculatorTest {
         stringCalculator.add("-5");
         stringCalculator.add("-6,16\n-15");
     }
+
+    @Test
+    public void numbersGreaterThan1000AreIgnored() {
+        assertEquals(stringCalculator.add("13,1001"), 13);
+        assertEquals(stringCalculator.add("67894,20\n4,134566"), 24);
+    }
 }
