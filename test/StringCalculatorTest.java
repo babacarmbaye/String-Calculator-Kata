@@ -17,4 +17,10 @@ public class StringCalculatorTest {
         assertEquals(stringCalculator.add("1"), 1);
         assertEquals(stringCalculator.add("7"), 7);
     }
+
+    @Test
+    public void stringCalculatorWithTwoNumbersCommaDelimited() {
+        assertEquals(stringCalculator.add("2,6"), 8);
+        assertEquals(stringCalculator.add("13,100"), 113);
+    }
 }
